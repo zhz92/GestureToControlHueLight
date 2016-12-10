@@ -82,7 +82,9 @@ public class MainActivity extends Activity implements SensorEventListener{
 
     public void detectMotion(SensorEvent sensorEvent) {
         long now = System.currentTimeMillis();
-
+        long nanoTime = System.nanoTime();
+        long timestamp = sensorEvent.timestamp;
+        
         if ((now - lastUpdate) > 100) {
             lastUpdate = now;
 
@@ -90,9 +92,11 @@ public class MainActivity extends Activity implements SensorEventListener{
             float y = sensorEvent.values[1];
             float z = sensorEvent.values[2];
 
-//            System.out.println("1=" + now);
-//            System.out.println("2 =" + System.nanoTime());
-//            System.out.println("3 =" + sensorEvent.timestamp);
+
+
+            System.out.println("1=" + now);
+            System.out.println("2 =" + nanoTime);
+            System.out.println("3 =" + timestamp);
 
             System.out.println("X = " + x);
             System.out.println("Y = " + y);
